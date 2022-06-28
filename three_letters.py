@@ -68,27 +68,6 @@ def second_solution():
             writer.writerow([word, words_count[word]])
 
 
-def second_solution():
-    words_list = []
-    words_count = {}
-    with open("words_with_three_letters.csv", encoding="utf-8-sig") as words_file:
-        file = csv.reader(words_file)
-        for line in file:
-            words_list.append("".join(sorted(list(line[0]))))
-    for word in words_list:
-        try:
-            words_count[word] += 1
-        except KeyError:
-            words_count[word] = 1
-    with open(
-        "second_solution.csv", "w", encoding="utf-8-sig", newline=""
-    ) as letters_file:
-        writer = csv.writer(letters_file)
-        writer.writerow(["word", "count"])
-        for word in words_count:
-            writer.writerow([word, words_count[word]])
-
-
 start = default_timer()
 word_checker()
 end = default_timer()
